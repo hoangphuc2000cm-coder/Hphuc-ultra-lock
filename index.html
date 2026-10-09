@@ -30,7 +30,7 @@
     <div class="row"><div class="l">🔑 KEY</div><div class="v" id="keyShow">-</div></div>
     <div class="row"><div class="l">⏳ HẠN</div><div class="v" id="expireShow">-</div></div>
     <div class="row"><div class="l">📋 LOẠI</div><div class="vip" id="typeShow">VIP</div></div>
-    <div class="row"><div class="l">📱 THIẾT BỊ</div><div class="v">1/1</div></div>
+    <div class="row"><div class="l">📱 MÃ MÁY</div><div class="v" id="deviceShow">-</div></div>
     <div class="row"><div class="l">📱 NỀN TẢNG</div><div class="v">iOS</div></div>
   </div>
   <div class="card">
@@ -94,121 +94,163 @@
   <button class="logout" onclick="logout()">ĐĂNG XUẤT</button>
 </div>
 
+<script src="keys.js"></script>
 <script src="script.js"></script>
 </body>
-</html>* { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,sans-serif; }
-body { background:#000; color:#fff; padding:12px; }
-#login { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px; }
-.box { width:100%; max-width:380px; text-align:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:40px 24px; }
-.logo { font-size:60px; margin-bottom:20px; }
-h1 { font-size:26px; font-weight:900; margin-bottom:6px; }
-.y { color:#FFD700; }
-.sub { color:#FFD700; font-size:14px; font-weight:bold; letter-spacing:2px; margin-bottom:20px; }
-.badge { display:inline-block; background:rgba(0,122,255,0.3); border:1px solid rgba(0,122,255,0.8); padding:8px 22px; border-radius:20px; font-weight:bold; margin-bottom:20px; font-size:14px; }
-input { width:100%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.3); border-radius:14px; padding:16px; color:#fff; font-size:14px; margin-bottom:14px; outline:none; text-align:center; }
-input::placeholder { color:#888; }
-button { width:100%; background:#FFD700; border:none; border-radius:16px; padding:16px; font-size:17px; font-weight:900; color:#000; cursor:pointer; margin-bottom:14px; }
-#msg { font-size:13px; min-height:20px; margin-bottom:10px; }
-.contact { font-size:13px; }
-.contact span { color:#FFD700; font-weight:bold; }
-#app { display:none; }
-.header { display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.05); padding:12px 16px; border-radius:12px; margin-bottom:12px; }
-.title { font-weight:900; font-size:14px; }
-.status { color:#00FF88; font-size:11px; font-weight:bold; }
-.card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:14px; margin-bottom:12px; }
-.row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; }
-.row .l { color:#bbb; }
-.row .v { color:#FFD700; font-weight:bold; }
-.vip { background:#FFD700; color:#000; padding:3px 12px; border-radius:9px; font-size:11px; font-weight:900; }
-.pm { text-align:center; color:#FFD700; font-size:17px; font-weight:900; margin-bottom:3px; }
-.pms { text-align:center; color:#999; font-size:11px; margin-bottom:12px; }
-.pmg { display:flex; gap:10px; }
-.pmb { flex:1; background:rgba(255,255,255,0.06); border-radius:12px; padding:14px; text-align:center; }
-.pmb .n { color:#FFD700; font-size:20px; font-weight:900; }
-.pmb .t { color:#999; font-size:10px; margin-top:3px; }
-.section { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; margin-bottom:12px; overflow:hidden; }
-.sec-h { padding:14px 16px; font-size:13px; font-weight:900; display:flex; justify-content:space-between; background:rgba(255,255,255,0.05); }
-.f { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.04); }
-.f:last-child { border-bottom:none; }
-.f .lft { display:flex; align-items:center; gap:12px; flex:1; }
-.f .ic { font-size:22px; width:28px; text-align:center; }
-.f .nm { font-size:13px; font-weight:900; }
-.f .ds { font-size:11px; color:#888; margin-top:2px; }
-.tag { background:#FFD700; color:#000; padding:2px 8px; border-radius:6px; font-size:10px; font-weight:900; margin-left:6px; }
-.tg { width:48px; height:28px; border-radius:14px; background:#333; position:relative; cursor:pointer; transition:0.2s; flex-shrink:0; }
-.tg.on { background:#FFD700; }
-.tg::after { content:''; position:absolute; width:24px; height:24px; border-radius:50%; background:#fff; top:2px; left:2px; transition:0.2s; }
-.tg.on::after { left:22px; }
-.gp { display:flex; gap:12px; margin-bottom:12px; }
-.gb { flex:1; padding:20px; border-radius:14px; text-align:center; background:rgba(255,255,255,0.05); border:2px solid transparent; cursor:pointer; }
-.gb.active { background:#FFD700; color:#000; border-color:#FFD700; }
-.gb .gi { font-size:28px; }
-.gb .gn { font-size:14px; font-weight:900; margin-top:4px; }
-.launch { width:100%; background:#FFD700; color:#000; border:none; border-radius:16px; padding:18px; font-size:15px; font-weight:900; cursor:pointer; }
-.logout { width:100%; background:rgba(255,255,255,0.08); color:#ff6666; border:none; border-radius:16px; padding:14px; font-size:13px; font-weight:bold; cursor:pointer; margin-top:8px; }var KEYS = {
+</html>var KEYS = {
+  // ===== 50 KEY 1 TUẦN =====
   "HPHUC-1W-001-K3F9-X8M2": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-002-P7T4-N2Q9": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-003-B5H8-V3L6": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-004-R9D2-Z4Y7": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-005-M6C1-Q8K3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-006-T2N9-F5P4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-007-Y8V3-J6X1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-008-L4B7-W9R2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-009-Q1G5-H3N8": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-010-D9K2-V7C4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-011-F3M8-P6T1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-012-X7R4-B2Y9": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-013-N5H1-L8Q3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-014-C2V9-K4F7": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-015-P8T3-D6M1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-016-J4Q7-Y2V5": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-017-B9N2-R5K8": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-018-W3F6-C1P4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-019-M7V4-T9H2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-020-K1R8-D3N6": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-021-Q9P5-B7Y2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-022-V4C1-M8T3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-023-H6N9-F2Q7": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-024-Y3K5-R8V1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-025-P1D7-W4M9": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-026-T8B2-N6C3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-027-L5Q1-K9F4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-028-X2V8-H7P3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-029-C6R4-Y1M9": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-030-N9T3-B5Q2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-031-F4K7-P8V1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-032-W1M6-D9R3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-033-Q7H2-N4T8": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-034-B3Y9-C6K1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-035-V8P4-M2F7": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-036-R5N1-T9Q3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-037-K2C8-Y6B4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-038-D9F3-H1V7": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-039-M6Q2-P8N5": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-040-T4V7-R3K1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-041-Y1B5-C9M2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-042-P8N3-F6Q4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-043-H2R9-K7T1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-044-Q5C1-V3B8": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-045-N7M4-D2Y6": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-046-F9T1-P5R3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-047-K4B8-H2C7": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-048-W6V3-Q9M1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-049-C1Y7-N4F2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-050-R8P5-T3K9": { type: "1 TUẦN", days: 7 },
+
+  // ===== 50 KEY 1 THÁNG =====
   "HPHUC-1M-001-A7K2-M5P8": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-002-B4R9-T1N6": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-003-C8V3-Q6H2": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-004-D1Y7-F4K9": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-005-E5M2-P8R3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-006-F9Q6-H1T7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-007-G3N8-V4Y1": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-008-H7T1-K9C5": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-009-J2P4-M6F8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-010-K6Y9-R3B1": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-011-L1C5-N7Q4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-012-M4H8-T2V9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-013-N9K3-P5F7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-014-P2V6-Y8M1": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-015-Q7R1-C4H9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-016-R3F8-B6N2": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-017-S8M5-K1Q7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-018-T1P9-V3Y4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-019-U5C2-H7R8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-020-V9N4-M2B6": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-021-W3Q7-F1K5": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-022-X6Y1-P8T3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-023-Y2M8-C5N9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-024-Z7H3-R1V4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-025-A4K9-B6P2": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-026-B8N1-T5M7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-027-C2V6-Y9F3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-028-D5P3-H1Q8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-029-E9R7-K4C2": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-030-F1M4-N8V6": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-031-G6Q2-P3Y9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-032-H3T8-B7R1": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-033-J7K5-C2M4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-034-K1V9-F6N8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-035-L4P2-H9Q3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-036-M8Y6-R1T5": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-037-N2C3-K7V9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-038-P6H1-M4B8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-039-Q9N5-Y2F7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-040-R1T7-C8P4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-041-S5M9-K3H6": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-042-T8V2-B1N4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-043-U3P6-Q9Y7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-044-V7C1-R4M2": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-045-W1K8-H6T3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-046-X4N5-F2P9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-047-Y8M3-V7C1": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-048-Z2H9-K5R4": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-049-A6P1-T8N3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-050-B3V7-M2Q9": { type: "1 THÁNG", days: 30 },
+
+  // ===== 50 KEY VĨNH VIỄN =====
   "HPHUC-VIP-001-X9K3-M6P2": { type: "VĨNH VIỄN", days: -1 },
   "HPHUC-VIP-002-Y4R8-T1N7": { type: "VĨNH VIỄN", days: -1 },
   "HPHUC-VIP-003-Z7V2-Q5H9": { type: "VĨNH VIỄN", days: -1 },
   "HPHUC-VIP-004-A3M9-F8K4": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-005-B6P1-C4Y7": { type: "VĨNH VIỄN", days: -1 }
+  "HPHUC-VIP-005-B6P1-C4Y7": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-006-C2N8-H9T3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-007-D9T5-V1M6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-008-E4K2-P7R8": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-009-F8Q6-Y3C1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-010-G1M4-N9V5": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-011-H5R7-K2P8": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-012-J9V3-C6T1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-013-K2P8-M4Y9": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-014-L6C1-H7N3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-015-M1Y5-R9K4": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-016-N7T2-V3P6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-017-P4K9-C8M1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-018-Q8M6-Y2H5": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-019-R3H1-N7T9": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-020-S9V4-P2C6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-021-T5C7-K8M3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-022-U2Y9-H4R1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-023-V8M3-T6N5": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-024-W4N1-C9P7": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-025-X1P6-Y3V8": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-026-Y7V2-M5K4": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-027-Z3K8-R1C9": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-028-A8C4-H6T2": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-029-B2T9-N1P5": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-030-C6P3-V7M8": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-031-D1M7-K4Y6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-032-E5Y1-C8R3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-033-F9R6-P2N4": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-034-G4N2-T7V1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-035-H8V5-M3K9": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-036-J2K1-Y6C7": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-037-K7C9-R4P2": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-038-L3P4-N8T6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-039-M9T8-V1H5": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-040-N4H6-K2M7": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-041-P1M3-C5Y8": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-042-Q6Y7-R9V4": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-043-R2V1-P6N3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-044-S8N5-T4K1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-045-T3K2-M9C6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-046-U7C8-Y1H4": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-047-V1H6-R3P9": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-048-W9P4-N2M5": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-049-X5R7-C1Y3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-050-Y1M9-K6V4": { type: "VĨNH VIỄN", days: -1 }
 };
-
-document.getElementById("loginBtn").addEventListener("click", function() {
-  var key = document.getElementById("keyInput").value.trim().toUpperCase();
-  var msg = document.getElementById("msg");
-  msg.style.color = "";
-  
-  if (!key) {
-    msg.style.color = "#ff4444";
-    msg.innerText = "⚠️ Vui lòng nhập key";
-    return;
-  }
-  
-  var info = KEYS[key];
-  if (!info) {
-    msg.style.color = "#ff4444";
-    msg.innerText = "❌ Key không hợp lệ";
-    return;
-  }
-  
-  msg.style.color = "#00FF88";
-  msg.innerText = "✅ Đăng nhập thành công!";
-  
-  setTimeout(function() {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("app").style.display = "block";
-    document.getElementById("keyShow").innerText = key;
-    document.getElementById("typeShow").innerText = info.type;
-    
-    if (info.days === -1) {
-      document.getElementById("expireShow").innerText = "Vĩnh viễn";
-    } else {
-      var d = new Date();
-      d.setDate(d.getDate() + info.days);
-      document.getElementById("expireShow").innerText = d.toLocaleDateString("vi-VN");
-    }
-  }, 500);
-});
-
-function pg(el) {
-  var items = document.querySelectorAll('.gb');
-  for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
-  el.classList.add('active');
-}
-
-function logout() {
-  document.getElementById("app").style.display = "none";
-  document.getElementById("login").style.display = "flex";
-  document.getElementById("keyInput").value = "";
-  document.getElementById("msg").innerText = "";
-}
