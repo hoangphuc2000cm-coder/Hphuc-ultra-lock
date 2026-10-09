@@ -1,0 +1,50 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,sans-serif; }
+body { background:#000; color:#fff; padding:12px; }
+#login { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px; }
+.box { width:100%; max-width:380px; text-align:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:40px 24px; }
+.logo { font-size:60px; margin-bottom:20px; }
+h1 { font-size:26px; font-weight:900; margin-bottom:6px; }
+.y { color:#FFD700; }
+.sub { color:#FFD700; font-size:14px; font-weight:bold; letter-spacing:2px; margin-bottom:20px; }
+.badge { display:inline-block; background:rgba(0,122,255,0.3); border:1px solid rgba(0,122,255,0.8); padding:8px 22px; border-radius:20px; font-weight:bold; margin-bottom:20px; font-size:14px; }
+input { width:100%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.3); border-radius:14px; padding:16px; color:#fff; font-size:14px; margin-bottom:14px; outline:none; text-align:center; }
+input::placeholder { color:#888; }
+button { width:100%; background:#FFD700; border:none; border-radius:16px; padding:16px; font-size:17px; font-weight:900; color:#000; cursor:pointer; margin-bottom:14px; }
+#msg { font-size:13px; min-height:20px; margin-bottom:10px; }
+.contact { font-size:13px; }
+.contact span { color:#FFD700; font-weight:bold; }
+#app { display:none; }
+.header { display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.05); padding:12px 16px; border-radius:12px; margin-bottom:12px; }
+.title { font-weight:900; font-size:14px; }
+.status { color:#00FF88; font-size:11px; font-weight:bold; }
+.card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:14px; margin-bottom:12px; }
+.row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; }
+.row .l { color:#bbb; }
+.row .v { color:#FFD700; font-weight:bold; font-size:11px; }
+.vip { background:#FFD700; color:#000; padding:3px 12px; border-radius:9px; font-size:11px; font-weight:900; }
+.pm { text-align:center; color:#FFD700; font-size:17px; font-weight:900; margin-bottom:3px; }
+.pms { text-align:center; color:#999; font-size:11px; margin-bottom:12px; }
+.pmg { display:flex; gap:10px; }
+.pmb { flex:1; background:rgba(255,255,255,0.06); border-radius:12px; padding:14px; text-align:center; }
+.pmb .n { color:#FFD700; font-size:20px; font-weight:900; }
+.pmb .t { color:#999; font-size:10px; margin-top:3px; }
+.section { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; margin-bottom:12px; overflow:hidden; }
+.sec-h { padding:14px 16px; font-size:13px; font-weight:900; display:flex; justify-content:space-between; background:rgba(255,255,255,0.05); }
+.f { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.04); }
+.f:last-child { border-bottom:none; }
+.f .lft { display:flex; align-items:center; gap:12px; flex:1; }
+.f .ic { font-size:22px; width:28px; text-align:center; }
+.f .nm { font-size:13px; font-weight:900; }
+.f .ds { font-size:11px; color:#888; margin-top:2px; }
+.tag { background:#FFD700; color:#000; padding:2px 8px; border-radius:6px; font-size:10px; font-weight:900; margin-left:6px; }
+.tg { width:48px; height:28px; border-radius:14px; background:#333; position:relative; cursor:pointer; transition:0.2s; flex-shrink:0; }
+.tg.on { background:#FFD700; }
+.tg::after { content:''; position:absolute; width:24px; height:24px; border-radius:50%; background:#fff; top:2px; left:2px; transition:0.2s; }
+.tg.on::after { left:22px; }
+.gp { display:flex; gap:12px; margin-bottom:12px; }
+.gb { flex:1; padding:20px; border-radius:14px; text-align:center; background:rgba(255,255,255,0.05); border:2px solid transparent; cursor:pointer; }
+.gb.active { background:#FFD700; color:#000; border-color:#FFD700; }
+.gb .gi { font-size:28px; }
+.gb .gn { font-size:14px; font-weight:900; margin-top:4px; }
+.launch { width:100%; background:#FFD700; color:#000; border:none; border-radius:16px; padding:18px; font-size:15px; font-weight:900; cursor:pointer; }
+.logout { width:100%; background:rgba(255,255,255,0.08); color:#ff6666; border:none; border-radius:16px; padding:14px; font-size:13px; font-weight:bold; cursor:pointer; margin-top:8px; }
