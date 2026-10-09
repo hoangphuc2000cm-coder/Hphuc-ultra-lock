@@ -4,87 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HPHUC ULTRALOCK</title>
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,sans-serif; }
-  body { background:#000; color:#fff; padding:12px; }
-  #login { display:flex; align-items:center; justify-content:center;
-           min-height:100vh; padding:20px; }
-  .box { width:100%; max-width:380px; text-align:center;
-         background:rgba(255,255,255,0.04);
-         border:1px solid rgba(255,255,255,0.1);
-         border-radius:24px; padding:40px 24px; }
-  .logo { font-size:60px; margin-bottom:20px; }
-  h1 { font-size:26px; font-weight:900; margin-bottom:6px; }
-  .y { color:#FFD700; }
-  .sub { color:#FFD700; font-size:14px; font-weight:bold;
-         letter-spacing:2px; margin-bottom:20px; }
-  .badge { display:inline-block; background:rgba(0,122,255,0.3);
-           border:1px solid rgba(0,122,255,0.8); padding:8px 22px;
-           border-radius:20px; font-weight:bold; margin-bottom:20px; font-size:14px; }
-  input { width:100%; background:rgba(255,255,255,0.03);
-          border:1px solid rgba(255,255,255,0.3); border-radius:14px;
-          padding:16px; color:#fff; font-size:14px;
-          margin-bottom:14px; outline:none; text-align:center; }
-  input::placeholder { color:#888; }
-  button { width:100%; background:#FFD700; border:none; border-radius:16px;
-           padding:16px; font-size:17px; font-weight:900; color:#000;
-           cursor:pointer; margin-bottom:14px; }
-  #msg { font-size:13px; min-height:20px; margin-bottom:10px; }
-  .contact { font-size:13px; }
-  .contact span { color:#FFD700; font-weight:bold; }
-  #app { display:none; }
-  .header { display:flex; justify-content:space-between; align-items:center;
-            background:rgba(255,255,255,0.05); padding:12px 16px;
-            border-radius:12px; margin-bottom:12px; }
-  .title { font-weight:900; font-size:14px; }
-  .status { color:#00FF88; font-size:11px; font-weight:bold; }
-  .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
-          border-radius:16px; padding:14px; margin-bottom:12px; }
-  .row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; }
-  .row .l { color:#bbb; }
-  .row .v { color:#FFD700; font-weight:bold; }
-  .vip { background:#FFD700; color:#000; padding:3px 12px;
-         border-radius:9px; font-size:11px; font-weight:900; }
-  .pm { text-align:center; color:#FFD700; font-size:17px; font-weight:900; margin-bottom:3px; }
-  .pms { text-align:center; color:#999; font-size:11px; margin-bottom:12px; }
-  .pmg { display:flex; gap:10px; }
-  .pmb { flex:1; background:rgba(255,255,255,0.06);
-         border-radius:12px; padding:14px; text-align:center; }
-  .pmb .n { color:#FFD700; font-size:20px; font-weight:900; }
-  .pmb .t { color:#999; font-size:10px; margin-top:3px; }
-  .section { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
-             border-radius:16px; margin-bottom:12px; overflow:hidden; }
-  .sec-h { padding:14px 16px; font-size:13px; font-weight:900;
-           display:flex; justify-content:space-between;
-           background:rgba(255,255,255,0.05); }
-  .f { display:flex; align-items:center; justify-content:space-between;
-       padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.04); }
-  .f:last-child { border-bottom:none; }
-  .f .lft { display:flex; align-items:center; gap:12px; flex:1; }
-  .f .ic { font-size:22px; width:28px; text-align:center; }
-  .f .nm { font-size:13px; font-weight:900; }
-  .f .ds { font-size:11px; color:#888; margin-top:2px; }
-  .tag { background:#FFD700; color:#000; padding:2px 8px;
-         border-radius:6px; font-size:10px; font-weight:900; margin-left:6px; }
-  .tg { width:48px; height:28px; border-radius:14px; background:#333;
-        position:relative; cursor:pointer; transition:0.2s; flex-shrink:0; }
-  .tg.on { background:#FFD700; }
-  .tg::after { content:''; position:absolute; width:24px; height:24px;
-               border-radius:50%; background:#fff; top:2px; left:2px; transition:0.2s; }
-  .tg.on::after { left:22px; }
-  .gp { display:flex; gap:12px; margin-bottom:12px; }
-  .gb { flex:1; padding:20px; border-radius:14px; text-align:center;
-        background:rgba(255,255,255,0.05); border:2px solid transparent; cursor:pointer; }
-  .gb.active { background:#FFD700; color:#000; border-color:#FFD700; }
-  .gb .gi { font-size:28px; }
-  .gb .gn { font-size:14px; font-weight:900; margin-top:4px; }
-  .launch { width:100%; background:#FFD700; color:#000; border:none;
-            border-radius:16px; padding:18px; font-size:15px;
-            font-weight:900; cursor:pointer; }
-  .logout { width:100%; background:rgba(255,255,255,0.08); color:#ff6666;
-            border:none; border-radius:16px; padding:14px; font-size:13px;
-            font-weight:bold; cursor:pointer; margin-top:8px; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -150,9 +70,6 @@
     <div class="f"><div class="lft"><div class="ic">⚡</div>
       <div><div class="nm">AUTO TRIGGER PRO<span class="tag">PRO</span></div><div class="ds">Tự Động Bắn Siêu Tốc</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="lft"><div class="ic">🎯</div>
-      <div><div class="nm">RECOIL CONTROL PRO<span class="tag">PRO</span></div><div class="ds">Ghim Tâm Giảm Giật</div></div></div>
-      <div class="tg" onclick="this.classList.toggle('on')"></div></div>
   </div>
   <div class="section">
     <div class="sec-h"><span>TÍNH NĂNG THƯỢNG HẠNG</span><span>🔒</span></div>
@@ -177,43 +94,73 @@
   <button class="logout" onclick="logout()">ĐĂNG XUẤT</button>
 </div>
 
-<script>
-var KEYS = {
-  // 10 KEY 1 TUẦN
+<script src="script.js"></script>
+</body>
+</html>* { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,sans-serif; }
+body { background:#000; color:#fff; padding:12px; }
+#login { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px; }
+.box { width:100%; max-width:380px; text-align:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:40px 24px; }
+.logo { font-size:60px; margin-bottom:20px; }
+h1 { font-size:26px; font-weight:900; margin-bottom:6px; }
+.y { color:#FFD700; }
+.sub { color:#FFD700; font-size:14px; font-weight:bold; letter-spacing:2px; margin-bottom:20px; }
+.badge { display:inline-block; background:rgba(0,122,255,0.3); border:1px solid rgba(0,122,255,0.8); padding:8px 22px; border-radius:20px; font-weight:bold; margin-bottom:20px; font-size:14px; }
+input { width:100%; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.3); border-radius:14px; padding:16px; color:#fff; font-size:14px; margin-bottom:14px; outline:none; text-align:center; }
+input::placeholder { color:#888; }
+button { width:100%; background:#FFD700; border:none; border-radius:16px; padding:16px; font-size:17px; font-weight:900; color:#000; cursor:pointer; margin-bottom:14px; }
+#msg { font-size:13px; min-height:20px; margin-bottom:10px; }
+.contact { font-size:13px; }
+.contact span { color:#FFD700; font-weight:bold; }
+#app { display:none; }
+.header { display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.05); padding:12px 16px; border-radius:12px; margin-bottom:12px; }
+.title { font-weight:900; font-size:14px; }
+.status { color:#00FF88; font-size:11px; font-weight:bold; }
+.card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:14px; margin-bottom:12px; }
+.row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; }
+.row .l { color:#bbb; }
+.row .v { color:#FFD700; font-weight:bold; }
+.vip { background:#FFD700; color:#000; padding:3px 12px; border-radius:9px; font-size:11px; font-weight:900; }
+.pm { text-align:center; color:#FFD700; font-size:17px; font-weight:900; margin-bottom:3px; }
+.pms { text-align:center; color:#999; font-size:11px; margin-bottom:12px; }
+.pmg { display:flex; gap:10px; }
+.pmb { flex:1; background:rgba(255,255,255,0.06); border-radius:12px; padding:14px; text-align:center; }
+.pmb .n { color:#FFD700; font-size:20px; font-weight:900; }
+.pmb .t { color:#999; font-size:10px; margin-top:3px; }
+.section { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; margin-bottom:12px; overflow:hidden; }
+.sec-h { padding:14px 16px; font-size:13px; font-weight:900; display:flex; justify-content:space-between; background:rgba(255,255,255,0.05); }
+.f { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.04); }
+.f:last-child { border-bottom:none; }
+.f .lft { display:flex; align-items:center; gap:12px; flex:1; }
+.f .ic { font-size:22px; width:28px; text-align:center; }
+.f .nm { font-size:13px; font-weight:900; }
+.f .ds { font-size:11px; color:#888; margin-top:2px; }
+.tag { background:#FFD700; color:#000; padding:2px 8px; border-radius:6px; font-size:10px; font-weight:900; margin-left:6px; }
+.tg { width:48px; height:28px; border-radius:14px; background:#333; position:relative; cursor:pointer; transition:0.2s; flex-shrink:0; }
+.tg.on { background:#FFD700; }
+.tg::after { content:''; position:absolute; width:24px; height:24px; border-radius:50%; background:#fff; top:2px; left:2px; transition:0.2s; }
+.tg.on::after { left:22px; }
+.gp { display:flex; gap:12px; margin-bottom:12px; }
+.gb { flex:1; padding:20px; border-radius:14px; text-align:center; background:rgba(255,255,255,0.05); border:2px solid transparent; cursor:pointer; }
+.gb.active { background:#FFD700; color:#000; border-color:#FFD700; }
+.gb .gi { font-size:28px; }
+.gb .gn { font-size:14px; font-weight:900; margin-top:4px; }
+.launch { width:100%; background:#FFD700; color:#000; border:none; border-radius:16px; padding:18px; font-size:15px; font-weight:900; cursor:pointer; }
+.logout { width:100%; background:rgba(255,255,255,0.08); color:#ff6666; border:none; border-radius:16px; padding:14px; font-size:13px; font-weight:bold; cursor:pointer; margin-top:8px; }var KEYS = {
   "HPHUC-1W-001-K3F9-X8M2": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-002-P7T4-N2Q9": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-003-B5H8-V3L6": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-004-R9D2-Z4Y7": { type: "1 TUẦN", days: 7 },
   "HPHUC-1W-005-M6C1-Q8K3": { type: "1 TUẦN", days: 7 },
-  "HPHUC-1W-006-T2N9-F5P4": { type: "1 TUẦN", days: 7 },
-  "HPHUC-1W-007-Y8V3-J6X1": { type: "1 TUẦN", days: 7 },
-  "HPHUC-1W-008-L4B7-W9R2": { type: "1 TUẦN", days: 7 },
-  "HPHUC-1W-009-Q1G5-H3N8": { type: "1 TUẦN", days: 7 },
-  "HPHUC-1W-010-D9K2-V7C4": { type: "1 TUẦN", days: 7 },
-
-  // 10 KEY 1 THÁNG
   "HPHUC-1M-001-A7K2-M5P8": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-002-B4R9-T1N6": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-003-C8V3-Q6H2": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-004-D1Y7-F4K9": { type: "1 THÁNG", days: 30 },
   "HPHUC-1M-005-E5M2-P8R3": { type: "1 THÁNG", days: 30 },
-  "HPHUC-1M-006-F9Q6-H1T7": { type: "1 THÁNG", days: 30 },
-  "HPHUC-1M-007-G3N8-V4Y1": { type: "1 THÁNG", days: 30 },
-  "HPHUC-1M-008-H7T1-K9C5": { type: "1 THÁNG", days: 30 },
-  "HPHUC-1M-009-J2P4-M6F8": { type: "1 THÁNG", days: 30 },
-  "HPHUC-1M-010-K6Y9-R3B1": { type: "1 THÁNG", days: 30 },
-
-  // 10 KEY VĨNH VIỄN
   "HPHUC-VIP-001-X9K3-M6P2": { type: "VĨNH VIỄN", days: -1 },
   "HPHUC-VIP-002-Y4R8-T1N7": { type: "VĨNH VIỄN", days: -1 },
   "HPHUC-VIP-003-Z7V2-Q5H9": { type: "VĨNH VIỄN", days: -1 },
   "HPHUC-VIP-004-A3M9-F8K4": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-005-B6P1-C4Y7": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-006-C2N8-H9T3": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-007-D9T5-V1M6": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-008-E4K2-P7R8": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-009-F8Q6-Y3C1": { type: "VĨNH VIỄN", days: -1 },
-  "HPHUC-VIP-010-G1M4-N9V5": { type: "VĨNH VIỄN", days: -1 }
+  "HPHUC-VIP-005-B6P1-C4Y7": { type: "VĨNH VIỄN", days: -1 }
 };
 
 document.getElementById("loginBtn").addEventListener("click", function() {
@@ -265,7 +212,3 @@ function logout() {
   document.getElementById("keyInput").value = "";
   document.getElementById("msg").innerText = "";
 }
-</script>
-
-</body>
-</html>
