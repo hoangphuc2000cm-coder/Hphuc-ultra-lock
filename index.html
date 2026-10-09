@@ -7,56 +7,51 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,sans-serif; }
   body { background:#000; color:#fff; padding:12px; }
-  #loginScreen { display:flex; align-items:center; justify-content:center;
-                 min-height:100vh; padding:20px; }
-  .login-box { width:100%; max-width:380px; text-align:center;
-               background:rgba(255,255,255,0.04);
-               border:1px solid rgba(255,255,255,0.1);
-               border-radius:24px; padding:40px 24px; }
-  .login-logo { font-size:60px; margin-bottom:20px; }
-  .login-title { font-size:26px; font-weight:900; margin-bottom:6px; }
-  .login-title .y { color:#FFD700; }
-  .login-sub { color:#FFD700; font-size:14px; font-weight:bold;
-               letter-spacing:2px; margin-bottom:20px; }
-  .login-badge { display:inline-block; background:rgba(0,122,255,0.3);
-                 border:1px solid rgba(0,122,255,0.8); padding:8px 22px;
-                 border-radius:20px; font-weight:bold; margin-bottom:20px; font-size:14px; }
-  #keyInput { width:100%; background:rgba(255,255,255,0.03);
-              border:1px solid rgba(255,255,255,0.3); border-radius:14px;
-              padding:16px 18px; color:#fff; font-size:14px;
-              margin-bottom:14px; outline:none; text-align:center;
-              letter-spacing:1px; font-family:monospace; }
-  #keyInput::placeholder { color:#888; font-family:-apple-system,sans-serif; letter-spacing:0; }
-  #loginBtn { width:100%; background:#FFD700; border:none; border-radius:16px;
-              padding:16px; font-size:17px; font-weight:900; color:#000;
-              cursor:pointer; margin-bottom:14px; }
-  #loginMsg { font-size:13px; min-height:20px; margin-bottom:10px; line-height:1.4; }
-  .err { color:#ff4444; }
-  .ok { color:#00FF88; }
-  .login-contact { font-size:13px; color:#fff; }
-  .login-contact span { color:#FFD700; font-weight:bold; }
-  #appScreen { display:none; }
+  #login { display:flex; align-items:center; justify-content:center;
+           min-height:100vh; padding:20px; }
+  .box { width:100%; max-width:380px; text-align:center;
+         background:rgba(255,255,255,0.04);
+         border:1px solid rgba(255,255,255,0.1);
+         border-radius:24px; padding:40px 24px; }
+  .logo { font-size:60px; margin-bottom:20px; }
+  h1 { font-size:26px; font-weight:900; margin-bottom:6px; }
+  .y { color:#FFD700; }
+  .sub { color:#FFD700; font-size:14px; font-weight:bold;
+         letter-spacing:2px; margin-bottom:20px; }
+  .badge { display:inline-block; background:rgba(0,122,255,0.3);
+           border:1px solid rgba(0,122,255,0.8); padding:8px 22px;
+           border-radius:20px; font-weight:bold; margin-bottom:20px; font-size:14px; }
+  input { width:100%; background:rgba(255,255,255,0.03);
+          border:1px solid rgba(255,255,255,0.3); border-radius:14px;
+          padding:16px; color:#fff; font-size:14px;
+          margin-bottom:14px; outline:none; text-align:center; }
+  input::placeholder { color:#888; }
+  button { width:100%; background:#FFD700; border:none; border-radius:16px;
+           padding:16px; font-size:17px; font-weight:900; color:#000;
+           cursor:pointer; margin-bottom:14px; }
+  #msg { font-size:13px; min-height:20px; margin-bottom:10px; }
+  .contact { font-size:13px; }
+  .contact span { color:#FFD700; font-weight:bold; }
+  #app { display:none; }
   .header { display:flex; justify-content:space-between; align-items:center;
             background:rgba(255,255,255,0.05); padding:12px 16px;
             border-radius:12px; margin-bottom:12px; }
-  .title { font-weight:900; font-size:14px; letter-spacing:1px; }
-  .title .y { color:#FFD700; }
+  .title { font-weight:900; font-size:14px; }
   .status { color:#00FF88; font-size:11px; font-weight:bold; }
   .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
           border-radius:16px; padding:14px; margin-bottom:12px; }
-  .row { display:flex; justify-content:space-between; align-items:center;
-         padding:8px 0; font-size:13px; }
-  .row .l { color:#bbb; display:flex; gap:8px; align-items:center; }
-  .row .v { color:#FFD700; font-weight:bold; font-family:monospace; font-size:11px; }
-  .vip-b { background:#FFD700; color:#000; padding:3px 12px;
-           border-radius:9px; font-size:11px; font-weight:900; }
-  .pm-t { text-align:center; color:#FFD700; font-size:17px; font-weight:900; margin-bottom:3px; }
-  .pm-s { text-align:center; color:#999; font-size:11px; margin-bottom:12px; }
-  .pm-g { display:flex; gap:10px; }
-  .pm-b { flex:1; background:rgba(255,255,255,0.06);
-          border-radius:12px; padding:14px; text-align:center; }
-  .pm-b .n { color:#FFD700; font-size:20px; font-weight:900; }
-  .pm-b .t { color:#999; font-size:10px; margin-top:3px; }
+  .row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; }
+  .row .l { color:#bbb; }
+  .row .v { color:#FFD700; font-weight:bold; }
+  .vip { background:#FFD700; color:#000; padding:3px 12px;
+         border-radius:9px; font-size:11px; font-weight:900; }
+  .pm { text-align:center; color:#FFD700; font-size:17px; font-weight:900; margin-bottom:3px; }
+  .pms { text-align:center; color:#999; font-size:11px; margin-bottom:12px; }
+  .pmg { display:flex; gap:10px; }
+  .pmb { flex:1; background:rgba(255,255,255,0.06);
+         border-radius:12px; padding:14px; text-align:center; }
+  .pmb .n { color:#FFD700; font-size:20px; font-weight:900; }
+  .pmb .t { color:#999; font-size:10px; margin-top:3px; }
   .section { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
              border-radius:16px; margin-bottom:12px; overflow:hidden; }
   .sec-h { padding:14px 16px; font-size:13px; font-weight:900;
@@ -65,15 +60,15 @@
   .f { display:flex; align-items:center; justify-content:space-between;
        padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.04); }
   .f:last-child { border-bottom:none; }
-  .f .left { display:flex; align-items:center; gap:12px; flex:1; }
+  .f .lft { display:flex; align-items:center; gap:12px; flex:1; }
   .f .ic { font-size:22px; width:28px; text-align:center; }
-  .f .nm { font-size:13px; font-weight:900; display:flex; align-items:center; gap:6px; }
+  .f .nm { font-size:13px; font-weight:900; }
   .f .ds { font-size:11px; color:#888; margin-top:2px; }
   .tag { background:#FFD700; color:#000; padding:2px 8px;
-         border-radius:6px; font-size:10px; font-weight:900; }
+         border-radius:6px; font-size:10px; font-weight:900; margin-left:6px; }
   .tg { width:48px; height:28px; border-radius:14px; background:#333;
         position:relative; cursor:pointer; transition:0.2s; flex-shrink:0; }
-  .tg.on { background:#FFD700; box-shadow:0 0 14px rgba(255,215,0,0.5); }
+  .tg.on { background:#FFD700; }
   .tg::after { content:''; position:absolute; width:24px; height:24px;
                border-radius:50%; background:#fff; top:2px; left:2px; transition:0.2s; }
   .tg.on::after { left:22px; }
@@ -93,20 +88,20 @@
 </head>
 <body>
 
-<div id="loginScreen">
-  <div class="login-box">
-    <div class="login-logo">🎯👑</div>
-    <div class="login-title"><span class="y">HPHUC</span> ULTRALOCK</div>
-    <div class="login-sub">VIP EDITION</div>
-    <div class="login-badge">🍎 iOS</div>
-    <input type="text" id="keyInput" placeholder="Nhập key iOS..." autocomplete="off">
+<div id="login">
+  <div class="box">
+    <div class="logo">🎯👑</div>
+    <h1><span class="y">HPHUC</span> ULTRALOCK</h1>
+    <div class="sub">VIP EDITION</div>
+    <div class="badge">🍎 iOS</div>
+    <input type="text" id="keyInput" placeholder="Nhập key iOS...">
     <button id="loginBtn">LOGIN</button>
-    <div id="loginMsg"></div>
-    <div class="login-contact">Liên hệ: <span>0916678949</span></div>
+    <div id="msg"></div>
+    <div class="contact">Liên hệ: <span>0916678949</span></div>
   </div>
 </div>
 
-<div id="appScreen">
+<div id="app">
   <div class="header">
     <div class="title"><span class="y">HPHUC</span> ULTRALOCK</div>
     <div class="status">● ONLINE</div>
@@ -114,65 +109,64 @@
   <div class="card">
     <div class="row"><div class="l">🔑 KEY</div><div class="v" id="keyShow">-</div></div>
     <div class="row"><div class="l">⏳ HẠN</div><div class="v" id="expireShow">-</div></div>
-    <div class="row"><div class="l">📅 CÒN LẠI</div><div class="v" id="daysLeft">-</div></div>
-    <div class="row"><div class="l">📋 LOẠI</div><div class="vip-b" id="typeShow">VIP</div></div>
+    <div class="row"><div class="l">📋 LOẠI</div><div class="vip" id="typeShow">VIP</div></div>
     <div class="row"><div class="l">📱 THIẾT BỊ</div><div class="v">1/1</div></div>
     <div class="row"><div class="l">📱 NỀN TẢNG</div><div class="v">iOS</div></div>
   </div>
   <div class="card">
-    <div class="pm-t">✨ VIP PREMIUM ✨</div>
-    <div class="pm-s">100% 10/10</div>
-    <div class="pm-g">
-      <div class="pm-b"><div class="n">x10.0</div><div class="t">SENSITIVITY</div></div>
-      <div class="pm-b"><div class="n">0/13</div><div class="t">ACTIVE PATCHES</div></div>
+    <div class="pm">✨ VIP PREMIUM ✨</div>
+    <div class="pms">100% 10/10</div>
+    <div class="pmg">
+      <div class="pmb"><div class="n">x10.0</div><div class="t">SENSITIVITY</div></div>
+      <div class="pmb"><div class="n">0/13</div><div class="t">ACTIVE PATCHES</div></div>
     </div>
   </div>
   <div class="section">
     <div class="sec-h"><span>TÍNH NĂNG THƯỜNG BASIC</span><span>🔒</span></div>
-    <div class="f"><div class="left"><div class="ic">📱</div>
+    <div class="f"><div class="lft"><div class="ic">📱</div>
       <div><div class="nm">SENSITIVITY BOOSTER</div><div class="ds">Nhạy Màn Hình Tối Đa</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">🖥</div>
+    <div class="f"><div class="lft"><div class="ic">🖥</div>
       <div><div class="nm">SCREEN BOOSTER</div><div class="ds">Buff FPS Siêu Mượt</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">⚡</div>
+    <div class="f"><div class="lft"><div class="ic">⚡</div>
       <div><div class="nm">BUFF 120HZ SCREEN</div><div class="ds">Tần Số Quét 120Hz</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">🎯</div>
+    <div class="f"><div class="lft"><div class="ic">🎯</div>
       <div><div class="nm">AIM BODY</div><div class="ds">Bắm Thân Tự Động</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
   </div>
   <div class="section">
     <div class="sec-h"><span>TÍNH NĂNG CAO CẤP</span><span>🔒</span></div>
-    <div class="f"><div class="left"><div class="ic">🎯</div>
+    <div class="f"><div class="lft"><div class="ic">🎯</div>
       <div><div class="nm">HEADSHOT FIX</div><div class="ds">Fix Lỗi Nhắm Headshot</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">🎯</div>
-      <div><div class="nm">AIM BODY PRO <span class="tag">PRO</span></div><div class="ds">Bắm Thân Chuyên Nghiệp</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">🎯</div>
+      <div><div class="nm">AIM BODY PRO<span class="tag">PRO</span></div><div class="ds">Bắm Thân Chuyên Nghiệp</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">🔒</div>
-      <div><div class="nm">AIMLOCK ASSIST <span class="tag">PRO</span></div><div class="ds">Hỗ Trợ Khóa Tâm</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">🔒</div>
+      <div><div class="nm">AIMLOCK ASSIST<span class="tag">PRO</span></div><div class="ds">Hỗ Trợ Khóa Tâm</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">⚡</div>
-      <div><div class="nm">AUTO TRIGGER PRO <span class="tag">PRO</span></div><div class="ds">Tự Động Bắn Siêu Tốc</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">⚡</div>
+      <div><div class="nm">AUTO TRIGGER PRO<span class="tag">PRO</span></div><div class="ds">Tự Động Bắn Siêu Tốc</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">🎯</div>
-      <div><div class="nm">RECOIL CONTROL PRO <span class="tag">PRO</span></div><div class="ds">Ghim Tâm Giảm Giật</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">🎯</div>
+      <div><div class="nm">RECOIL CONTROL PRO<span class="tag">PRO</span></div><div class="ds">Ghim Tâm Giảm Giật</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
   </div>
   <div class="section">
     <div class="sec-h"><span>TÍNH NĂNG THƯỢNG HẠNG</span><span>🔒</span></div>
-    <div class="f"><div class="left"><div class="ic">🎯</div>
-      <div><div class="nm">AIMLOCK ULTRA <span class="tag">VIP</span></div><div class="ds">Tâm Bám Đầu Siêu Tốc</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">🎯</div>
+      <div><div class="nm">AIMLOCK ULTRA<span class="tag">VIP</span></div><div class="ds">Tâm Bám Đầu Siêu Tốc</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">📌</div>
-      <div><div class="nm">ANCHOR AIM <span class="tag">VIP</span></div><div class="ds">Ghim Tâm Tự Động</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">📌</div>
+      <div><div class="nm">ANCHOR AIM<span class="tag">VIP</span></div><div class="ds">Ghim Tâm Tự Động</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">👆</div>
-      <div><div class="nm">TOUCH SENSITIVITY <span class="tag">VIP</span></div><div class="ds">10.0x DPI Boost</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">👆</div>
+      <div><div class="nm">TOUCH SENSITIVITY<span class="tag">VIP</span></div><div class="ds">10.0x DPI Boost</div></div></div>
       <div class="tg on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="f"><div class="left"><div class="ic">⚙️</div>
-      <div><div class="nm">RECOIL STABILIZATION <span class="tag">VIP</span></div><div class="ds">100% Ổn Định</div></div></div>
+    <div class="f"><div class="lft"><div class="ic">⚙️</div>
+      <div><div class="nm">RECOIL STABILIZATION<span class="tag">VIP</span></div><div class="ds">100% Ổn Định</div></div></div>
       <div class="tg" onclick="this.classList.toggle('on')"></div></div>
   </div>
   <div class="gp">
@@ -184,97 +178,94 @@
 </div>
 
 <script>
-// ================== 100 KEY 1 TUẦN ==================
-const KEYS_1WEEK = [
-"HPHUC-1W-001-K3F9-X8M2","HPHUC-1W-002-P7T4-N2Q9","HPHUC-1W-003-B5H8-V3L6",
-"HPHUC-1W-004-R9D2-Z4Y7","HPHUC-1W-005-M6C1-Q8K3","HPHUC-1W-006-T2N9-F5P4",
-"HPHUC-1W-007-Y8V3-J6X1","HPHUC-1W-008-L4B7-W9R2","HPHUC-1W-009-Q1G5-H3N8",
-"HPHUC-1W-010-D9K2-V7C4","HPHUC-1W-011-F3M8-P6T1","HPHUC-1W-012-X7R4-B2Y9",
-"HPHUC-1W-013-N5H1-L8Q3","HPHUC-1W-014-C2V9-K4F7","HPHUC-1W-015-P8T3-D6M1",
-"HPHUC-1W-016-J4Q7-Y2V5","HPHUC-1W-017-B9N2-R5K8","HPHUC-1W-018-W3F6-C1P4",
-"HPHUC-1W-019-M7V4-T9H2","HPHUC-1W-020-K1R8-D3N6","HPHUC-1W-021-Q9P5-B7Y2",
-"HPHUC-1W-022-V4C1-M8T3","HPHUC-1W-023-H6N9-F2Q7","HPHUC-1W-024-Y3K5-R8V1",
-"HPHUC-1W-025-P1D7-W4M9","HPHUC-1W-026-T8B2-N6C3","HPHUC-1W-027-L5Q1-K9F4",
-"HPHUC-1W-028-X2V8-H7P3","HPHUC-1W-029-C6R4-Y1M9","HPHUC-1W-030-N9T3-B5Q2",
-"HPHUC-1W-031-F4K7-P8V1","HPHUC-1W-032-W1M6-D9R3","HPHUC-1W-033-Q7H2-N4T8",
-"HPHUC-1W-034-B3Y9-C6K1","HPHUC-1W-035-V8P4-M2F7","HPHUC-1W-036-R5N1-T9Q3",
-"HPHUC-1W-037-K2C8-Y6B4","HPHUC-1W-038-D9F3-H1V7","HPHUC-1W-039-M6Q2-P8N5",
-"HPHUC-1W-040-T4V7-R3K1","HPHUC-1W-041-Y1B5-C9M2","HPHUC-1W-042-P8N3-F6Q4",
-"HPHUC-1W-043-H2R9-K7T1","HPHUC-1W-044-Q5C1-V3B8","HPHUC-1W-045-N7M4-D2Y6",
-"HPHUC-1W-046-F9T1-P5R3","HPHUC-1W-047-K4B8-H2C7","HPHUC-1W-048-W6V3-Q9M1",
-"HPHUC-1W-049-C1Y7-N4F2","HPHUC-1W-050-R8P5-T3K9","HPHUC-1W-051-M2D6-B7V4",
-"HPHUC-1W-052-Q9H1-Y5C3","HPHUC-1W-053-T4N8-K2P7","HPHUC-1W-054-V1F3-R6M9",
-"HPHUC-1W-055-B5C7-H9Q2","HPHUC-1W-056-P3Y1-N8T4","HPHUC-1W-057-K7M2-D5V9",
-"HPHUC-1W-058-F6R4-C1B3","HPHUC-1W-059-N9Q5-T7H1","HPHUC-1W-060-Y2V8-M4P6",
-"HPHUC-1W-061-H1C3-K9R5","HPHUC-1W-062-D7P2-B4N8","HPHUC-1W-063-Q5T9-F1V3",
-"HPHUC-1W-064-M8R1-Y6C4","HPHUC-1W-065-V3H7-N2K9","HPHUC-1W-066-B1F5-P8Q2",
-"HPHUC-1W-067-C9M4-T3Y7","HPHUC-1W-068-R2K8-H5V1","HPHUC-1W-069-N6P1-Q9B4",
-"HPHUC-1W-070-F3Y7-D2C5","HPHUC-1W-071-K1V9-M6R3","HPHUC-1W-072-T5B2-H8N4",
-"HPHUC-1W-073-Q8C6-P3F1","HPHUC-1W-074-Y4N1-K7V9","HPHUC-1W-075-M2R5-D9B3",
-"HPHUC-1W-076-H6T3-C1Q8","HPHUC-1W-077-V9F4-N2P7","HPHUC-1W-078-B3K8-Y5M1",
-"HPHUC-1W-079-P1D6-R4C9","HPHUC-1W-080-C7Q2-T8V3","HPHUC-1W-081-N5H9-M1F4",
-"HPHUC-1W-082-R3Y6-B8K2","HPHUC-1W-083-F9V1-P5Q7","HPHUC-1W-084-K4C2-D6N8",
-"HPHUC-1W-085-T8M3-H1R5","HPHUC-1W-086-Y6B9-V4P2","HPHUC-1W-087-Q1N7-C3K5",
-"HPHUC-1W-088-M5F2-R9T4","HPHUC-1W-089-D3P8-Y1H6","HPHUC-1W-090-V7K4-B2C9",
-"HPHUC-1W-091-H9R1-N6M3","HPHUC-1W-092-C4T5-Q2F8","HPHUC-1W-093-P6Y3-K9V1",
-"HPHUC-1W-094-B2M7-D4R5","HPHUC-1W-095-N8C1-H3T9","HPHUC-1W-096-R5V9-F7P2",
-"HPHUC-1W-097-K1Q4-Y8B6","HPHUC-1W-098-T3H2-M5C7","HPHUC-1W-099-F7P6-N1V4",
-"HPHUC-1W-100-Y9D3-R2K8"
-];
+var KEYS = {
+  // 10 KEY 1 TUẦN
+  "HPHUC-1W-001-K3F9-X8M2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-002-P7T4-N2Q9": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-003-B5H8-V3L6": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-004-R9D2-Z4Y7": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-005-M6C1-Q8K3": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-006-T2N9-F5P4": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-007-Y8V3-J6X1": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-008-L4B7-W9R2": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-009-Q1G5-H3N8": { type: "1 TUẦN", days: 7 },
+  "HPHUC-1W-010-D9K2-V7C4": { type: "1 TUẦN", days: 7 },
 
-// ================== 100 KEY 1 THÁNG ==================
-const KEYS_1MONTH = [
-"HPHUC-1M-001-A7K2-M5P8","HPHUC-1M-002-B4R9-T1N6","HPHUC-1M-003-C8V3-Q6H2",
-"HPHUC-1M-004-D1Y7-F4K9","HPHUC-1M-005-E5M2-P8R3","HPHUC-1M-006-F9Q6-H1T7",
-"HPHUC-1M-007-G3N8-V4Y1","HPHUC-1M-008-H7T1-K9C5","HPHUC-1M-009-J2P4-M6F8",
-"HPHUC-1M-010-K6Y9-R3B1","HPHUC-1M-011-L1C5-N7Q4","HPHUC-1M-012-M4H8-T2V9",
-"HPHUC-1M-013-N9K3-P5F7","HPHUC-1M-014-P2V6-Y8M1","HPHUC-1M-015-Q7R1-C4H9",
-"HPHUC-1M-016-R3F8-B6N2","HPHUC-1M-017-S8M5-K1Q7","HPHUC-1M-018-T1P9-V3Y4",
-"HPHUC-1M-019-U5C2-H7R8","HPHUC-1M-020-V9N4-M2B6","HPHUC-1M-021-W3Q7-F1K5",
-"HPHUC-1M-022-X6Y1-P8T3","HPHUC-1M-023-Y2M8-C5N9","HPHUC-1M-024-Z7H3-R1V4",
-"HPHUC-1M-025-A4K9-B6P2","HPHUC-1M-026-B8N1-T5M7","HPHUC-1M-027-C2V6-Y9F3",
-"HPHUC-1M-028-D5P3-H1Q8","HPHUC-1M-029-E9R7-K4C2","HPHUC-1M-030-F1M4-N8V6",
-"HPHUC-1M-031-G6Q2-P3Y9","HPHUC-1M-032-H3T8-B7R1","HPHUC-1M-033-J7K5-C2M4",
-"HPHUC-1M-034-K1V9-F6N8","HPHUC-1M-035-L4P2-H9Q3","HPHUC-1M-036-M8Y6-R1T5",
-"HPHUC-1M-037-N2C3-K7V9","HPHUC-1M-038-P6H1-M4B8","HPHUC-1M-039-Q9N5-Y2F7",
-"HPHUC-1M-040-R1T7-C8P4","HPHUC-1M-041-S5M9-K3H6","HPHUC-1M-042-T8V2-B1N4",
-"HPHUC-1M-043-U3P6-Q9Y7","HPHUC-1M-044-V7C1-R4M2","HPHUC-1M-045-W1K8-H6T3",
-"HPHUC-1M-046-X4N5-F2P9","HPHUC-1M-047-Y8M3-V7C1","HPHUC-1M-048-Z2H9-K5R4",
-"HPHUC-1M-049-A6P1-T8N3","HPHUC-1M-050-B3V7-M2Q9","HPHUC-1M-051-C9K4-H6F1",
-"HPHUC-1M-052-D2N8-R1Y5","HPHUC-1M-053-E7M3-P4T9","HPHUC-1M-054-F1Q6-C8V2",
-"HPHUC-1M-055-G5H9-K3N7","HPHUC-1M-056-H8T2-B6M4","HPHUC-1M-057-J3V1-Y9P5",
-"HPHUC-1M-058-K9P4-N2C7","HPHUC-1M-059-L2M7-R5H1","HPHUC-1M-060-M6Y3-T8F4",
-"HPHUC-1M-061-N1C8-P5V2","HPHUC-1M-062-P7H4-K2M9","HPHUC-1M-063-Q2N9-B6T3",
-"HPHUC-1M-064-R8V5-C1Y7","HPHUC-1M-065-S4M1-H9P6","HPHUC-1M-066-T9P6-F3N2",
-"HPHUC-1M-067-U1K3-V8R4","HPHUC-1M-068-V5C7-M2H9","HPHUC-1M-069-W8N4-Y1T6",
-"HPHUC-1M-070-X2H9-P7K3","HPHUC-1M-071-Y6M1-C4V8","HPHUC-1M-072-Z3T5-R9N2",
-"HPHUC-1M-073-A9V2-K6P4","HPHUC-1M-074-B5P8-H1M7","HPHUC-1M-075-C1N3-Y9R5",
-"HPHUC-1M-076-D7M6-T2C4","HPHUC-1M-077-E4K1-P8V9","HPHUC-1M-078-F8R5-N3H2",
-"HPHUC-1M-079-G2C9-M7T1","HPHUC-1M-080-H6V4-K1P8","HPHUC-1M-081-J1P7-Y5N3",
-"HPHUC-1M-082-K5N2-R8M6","HPHUC-1M-083-L9T6-C3V1","HPHUC-1M-084-M3H1-P7K4",
-"HPHUC-1M-085-N8V5-F2Y9","HPHUC-1M-086-P4K9-M6C3","HPHUC-1M-087-Q1Y3-H8T5",
-"HPHUC-1M-088-R6C7-N2P1","HPHUC-1M-089-S2M4-V9K6","HPHUC-1M-090-T7P1-Y3H8",
-"HPHUC-1M-091-U5H8-C6N4","HPHUC-1M-092-V1N3-K9M7","HPHUC-1M-093-W6K9-P2Y5",
-"HPHUC-1M-094-X3Y5-T7C1","HPHUC-1M-095-Y9C2-M4V6","HPHUC-1M-096-Z5V8-H1P3",
-"HPHUC-1M-097-A2P6-N9K4","HPHUC-1M-098-B7K4-Y2M8","HPHUC-1M-099-C4M1-V6T9",
-"HPHUC-1M-100-D8T9-P3N5"
-];
+  // 10 KEY 1 THÁNG
+  "HPHUC-1M-001-A7K2-M5P8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-002-B4R9-T1N6": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-003-C8V3-Q6H2": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-004-D1Y7-F4K9": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-005-E5M2-P8R3": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-006-F9Q6-H1T7": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-007-G3N8-V4Y1": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-008-H7T1-K9C5": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-009-J2P4-M6F8": { type: "1 THÁNG", days: 30 },
+  "HPHUC-1M-010-K6Y9-R3B1": { type: "1 THÁNG", days: 30 },
 
-// ================== 100 KEY VĨNH VIỄN ==================
-const KEYS_FOREVER = [
-"HPHUC-VIP-001-X9K3-M6P2","HPHUC-VIP-002-Y4R8-T1N7","HPHUC-VIP-003-Z7V2-Q5H9",
-"HPHUC-VIP-004-A3M9-F8K4","HPHUC-VIP-005-B6P1-C4Y7","HPHUC-VIP-006-C2N8-H9T3",
-"HPHUC-VIP-007-D9T5-V1M6","HPHUC-VIP-008-E4K2-P7R8","HPHUC-VIP-009-F8Q6-Y3C1",
-"HPHUC-VIP-010-G1M4-N9V5","HPHUC-VIP-011-H5R7-K2P8","HPHUC-VIP-012-J9V3-C6T1",
-"HPHUC-VIP-013-K2P8-M4Y9","HPHUC-VIP-014-L6C1-H7N3","HPHUC-VIP-015-M1Y5-R9K4",
-"HPHUC-VIP-016-N7T2-V3P6","HPHUC-VIP-017-P4K9-C8M1","HPHUC-VIP-018-Q8M6-Y2H5",
-"HPHUC-VIP-019-R3H1-N7T9","HPHUC-VIP-020-S9V4-P2C6","HPHUC-VIP-021-T5C7-K8M3",
-"HPHUC-VIP-022-U2Y9-H4R1","HPHUC-VIP-023-V8M3-T6N5","HPHUC-VIP-024-W4N1-C9P7",
-"HPHUC-VIP-025-X1P6-Y3V8","HPHUC-VIP-026-Y7V2-M5K4","HPHUC-VIP-027-Z3K8-R1C9",
-"HPHUC-VIP-028-A8C4-H6T2","HPHUC-VIP-029-B2T9-N1P5","HPHUC-VIP-030-C6P3-V7M8",
-"HPHUC-VIP-031-D1M7-K4Y6","HPHUC-VIP-032-E5Y1-C8R3","HPHUC-VIP-033-F9R6-P2N4",
-"HPHUC-VIP-034-G4N2-T7V1","HPHUC-VIP-035-H8V5-M3K9","HPHUC-VIP-036-J2K1-Y6C7",
-"HPHUC-VIP-037-K7C9-R4P2","HPHUC-VIP-038-L3P4-N8T6","HPHUC-VIP-039-M9T8-V1H5",
-"HPHUC-VIP-040-N4H6-K2M7","HPHUC-VIP-041-P1M3-C5Y8","HPHUC-VIP-042-Q6Y7-R9V4",
-"HPHUC-VIP-043-R2V1-P6N3","HPHUC-VIP-044-S8N5-T4K1","HPHUC-VIP-045-T3K2-M9C6",
-"HPHUC-VIP-046-U7C8-Y1H4","HPHUC-VIP
+  // 10 KEY VĨNH VIỄN
+  "HPHUC-VIP-001-X9K3-M6P2": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-002-Y4R8-T1N7": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-003-Z7V2-Q5H9": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-004-A3M9-F8K4": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-005-B6P1-C4Y7": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-006-C2N8-H9T3": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-007-D9T5-V1M6": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-008-E4K2-P7R8": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-009-F8Q6-Y3C1": { type: "VĨNH VIỄN", days: -1 },
+  "HPHUC-VIP-010-G1M4-N9V5": { type: "VĨNH VIỄN", days: -1 }
+};
+
+document.getElementById("loginBtn").addEventListener("click", function() {
+  var key = document.getElementById("keyInput").value.trim().toUpperCase();
+  var msg = document.getElementById("msg");
+  msg.style.color = "";
+  
+  if (!key) {
+    msg.style.color = "#ff4444";
+    msg.innerText = "⚠️ Vui lòng nhập key";
+    return;
+  }
+  
+  var info = KEYS[key];
+  if (!info) {
+    msg.style.color = "#ff4444";
+    msg.innerText = "❌ Key không hợp lệ";
+    return;
+  }
+  
+  msg.style.color = "#00FF88";
+  msg.innerText = "✅ Đăng nhập thành công!";
+  
+  setTimeout(function() {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("app").style.display = "block";
+    document.getElementById("keyShow").innerText = key;
+    document.getElementById("typeShow").innerText = info.type;
+    
+    if (info.days === -1) {
+      document.getElementById("expireShow").innerText = "Vĩnh viễn";
+    } else {
+      var d = new Date();
+      d.setDate(d.getDate() + info.days);
+      document.getElementById("expireShow").innerText = d.toLocaleDateString("vi-VN");
+    }
+  }, 500);
+});
+
+function pg(el) {
+  var items = document.querySelectorAll('.gb');
+  for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
+  el.classList.add('active');
+}
+
+function logout() {
+  document.getElementById("app").style.display = "none";
+  document.getElementById("login").style.display = "flex";
+  document.getElementById("keyInput").value = "";
+  document.getElementById("msg").innerText = "";
+}
+</script>
+
+</body>
+</html>
